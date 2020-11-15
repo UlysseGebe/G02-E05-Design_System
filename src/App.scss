@@ -1,5 +1,11 @@
+@import 'assets/style/styles';
+
 .App {
   text-align: center;
+  @include layout-flex(row, center, center); /* flex-start / center / flex-end */
+  @include childs(20%, 1);
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 .App-logo {
@@ -36,5 +42,3 @@
     transform: rotate(360deg);
   }
 }
-
-@import 'assets/style/styles';

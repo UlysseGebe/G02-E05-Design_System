@@ -1,3 +1,43 @@
 @import './colors/light.scss';
 
 @import './colors/dark.scss';
+
+@mixin layout-flex($property, $value-x, $value-y) {
+    display: flex;
+    flex-direction: $property;
+    @if $property == 'column' {
+        align-items: $value-x;
+        justify-content: $value-y;
+    }
+    @if $property == 'row' {
+        align-items: $value-y;
+        justify-content: $value-x;
+    }
+}
+
+@mixin childs($value: 0%, $component : 0) {
+    & > div:first-child { width: $value; }
+    & > div:last-child { width: 100 - $value; }
+
+    @if $component == 1 {
+        & > div {
+            height: 100vh;
+            @include layout-flex(column, center, center); /* flex-start / center / flex-end */
+        }
+    }
+}
+
+h1, h2, a, p {
+    color: var(--neutral-6);
+}
+
+input:focus {
+    color: var(--accent);
+    outline-color: var(--sementic-purple);
+}
+
+input:focus + label {
+    color: var(--sementic-purple);
+}
+
+@import './m-switch.scss';

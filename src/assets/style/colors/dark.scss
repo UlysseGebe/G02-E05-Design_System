@@ -1,14 +1,20 @@
-:root[data-theme="dark"] {
+.App[data-theme="dark"] {
   /* COLOR */
-  --accent-1: rgb(155, 81, 224);
-  --neutral-1: rgb(51, 51, 51);
-  --neutral-2: rgb(86, 86, 86);
-  --neutral-3: rgb(123, 123, 123);
-  --neutral-4: rgb(140, 140, 140);
-  --neutral-5: rgb(181, 181, 181);
-  --neutral-6: rgb(210, 210, 210);
-  --neutral-7: rgb(250, 250, 250);
-  --sementic-1: rgb(150, 106, 191);
-  --sementic-2: rgb(180, 65, 65);
-  --sementic-3: rgb(80, 178, 89);
+  --accent: rgb(155, 81, 224);
+  --neutral-0: rgb(34, 34, 34);
+  --neutral-1: rgb(86, 86, 86);
+  --neutral-2: rgb(140, 140, 140);
+  --neutral-3: rgb(181, 181, 181);
+  --neutral-4: rgb(210, 210, 210);
+  --neutral-5: rgb(250, 250, 250);
+  --neutral-6: rgb(255, 255, 255);
+  --sementic-green: rgb(74, 163, 82);
+  --sementic-green-light: rgb(163, 217, 168);
+  --sementic-orange: rgb(214, 145, 43);
+  --sementic-orange-light: rgb(237, 195, 133);
+  --sementic-purple: rgb(120, 57, 180);
+  --sementic-purple-lignt: rgb(175, 125, 221);
+  --sementic-red: rgb(180, 65, 65);
+  --sementic-red-dark: rgb(148, 56, 56);
+  --sementic-red-light: rgb(228, 148, 148);
 }
