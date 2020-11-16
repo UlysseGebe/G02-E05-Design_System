@@ -1,8 +1,18 @@
 const login = {
     title: "Profile",
     form: [
-        ["E-mail", "Saisissez votre adresse e-mail"],
-        ["Fullname", "John Doe"]
+        {
+            type: "email",
+            label: "E-mail",
+            holder: "Saisissez votre adresse e-mail",
+            class: "mb25"
+        },
+        {
+            type: "name",
+            label: "Fullname",
+            holder: "John Doe",
+            class: "mb35"
+        }
     ],
     formSave: "Save",
     delete: {
@@ -11,3 +21,5 @@ const login = {
         btn: "DELETE"
     }
 }
+
+export default login

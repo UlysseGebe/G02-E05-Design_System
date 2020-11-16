@@ -1,6 +1,5 @@
 import React from 'react';
-import profil from '../../assets/images/John-Doe.png';
-// import sidemenu from "../../data/sidemenu"
+import sidemenu from "../../data/sidemenu"
 
 class Sidemenu extends React.Component {
     constructor(props) {
@@ -19,20 +18,22 @@ class Sidemenu extends React.Component {
         return (
             <div className="Sidemenu border-right">
                 <menu className="p0" >
-                    <h2>Account</h2>
+                    <h2>{sidemenu.title}</h2>
                     <ul className="border-top list-style pl50">
-                        <li className="relative mb35 active" >
-                            <div className="m-picture" style={{backgroundImage: 'url('+profil+')'}} >
-                            </div>
-                            <h2><a href="http://localhost:3000/" >JD</a></h2>
-                            </li>
-                        <li className="mb35"><h2><a href="http://localhost:3000/" >Profile</a></h2></li>
-                        <li className="mb35"><h2><a href="http://localhost:3000/" >Settings</a></h2></li>
-                        <li className="mb35"><h2><a href="http://localhost:3000/" >Data</a></h2></li>
+                        {sidemenu.menu.map((list) =>{
+                            return typeof list == "object" ?
+                                <li className="relative mb35 active" >
+                                    <div className="m-picture" style={{backgroundImage: 'url('+list.img+')'}} >
+                                    </div>
+                                    <h2><a href="http://localhost:3000/" >{list.name}</a></h2>
+                                </li>
+                            :
+                            <li className="mb35"><h2><a href="http://localhost:3000/">{list}</a></h2></li>
+                        })}
                     </ul>
                 </menu>
                 <div className="theme a-theme mb25">
-                    <h2 className="mr20" >Dark Theme</h2>
+                    <h2 className="mr20" >{sidemenu.themeTitle}</h2>
                     <label className="switch">
                         <input type="checkbox" checked={this.state.isChecked} onChange={this.toggleChange} />
                         <span className="slider round"></span>
