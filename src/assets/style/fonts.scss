@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "Fabriga";
+    src: url("../fonts/Fabriga-Black.otf") format("otf"),
+         url("../fonts/Fabriga-Bold.ttf") format("ttf"),
+         url("../fonts/Fabriga-Bold.otf") format("otf");
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-Regular.ttf") format("ttf");
+}
+
+@mixin title {
+    font-family: "Fabriga", sans-serif;
+    font-size: 36pt;
+    font-weight: 600;
+}
+
+@mixin subtitle {
+    font-family: "Fabriga", sans-serif;
+    font-size: 24pt;
+    font-weight: 500;
+}
+
+@mixin section {
+    font-family: "Fabriga", sans-serif;
+    font-size: 18pt;
+    font-weight: 500;
+}
+
+@mixin corps {
+    font-family: "Inter";
+    font-size: 15pt;
+}

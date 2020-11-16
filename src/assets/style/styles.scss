@@ -1,43 +1,115 @@
 @import './colors/light.scss';
-
 @import './colors/dark.scss';
+@import './fonts.scss';
 
 @mixin layout-flex($property, $value-x, $value-y) {
     display: flex;
     flex-direction: $property;
-    @if $property == 'column' {
+
+    @if $property == 'column' or $property == 'column-reverse' {
         align-items: $value-x;
         justify-content: $value-y;
     }
-    @if $property == 'row' {
+    @if $property == 'row' or $property == 'row-reverse' {
         align-items: $value-y;
         justify-content: $value-x;
     }
 }
 
-@mixin childs($value: 0%, $component : 0) {
-    & > div:first-child { width: $value; }
-    & > div:last-child { width: 100 - $value; }
-
+@mixin childs($value: 0%, $component : 0, $nb : 0, $property: column, $value-x: center, $value-y: center) {
     @if $component == 1 {
-        & > div {
-            height: 100vh;
-            @include layout-flex(column, center, center); /* flex-start / center / flex-end */
+        @if $nb != 0 {
+            & > div:nth-of-type(#{$nb}) { @include layout-flex($property, $value-x, $value-y); }
+        }
+    }
+
+    @if $component != 1 {
+        @if $nb != 0 {
+            & > div:nth-of-type(#{$nb}) > *:not(.theme) { width: $value; }
         }
     }
 }
 
-h1, h2, a, p {
+@mixin divid ($value: 0%) {
+    & > div:first-child { width: $value }
+    & > div:last-child { width: 100 - $value }
+    & > div {
+        min-height: 100vh;
+        height: fit-content;
+    }
+}
+
+
+// General Text
+h1, h2, a, p, label {
     color: var(--neutral-6);
+    text-decoration: none;
 }
 
-input:focus {
+a:hover,
+.active > h2 a {
     color: var(--accent);
-    outline-color: var(--sementic-purple);
 }
 
-input:focus + label {
-    color: var(--sementic-purple);
+h1 { @include title }
+h2 { @include subtitle }
+label { @include section }
+input, button, p { @include corps }
+
+// General CTA
+input, button {
+    outline: none;
+    border-radius: 5px;
+    min-height: 40px;
+    min-width: 98px;
 }
 
-@import './m-switch.scss';
+// CTA Settings
+// // Input field
+input:not([type="button"]) {
+    padding: 1px 10px;
+    border: 1px solid var(--neutral-6);
+    width: 100%;
+    background-color: var(--bg);
+}
+
+input::placeholder { color: var(--neutral-6) }
+
+input:not([type="button"]):focus,
+input:not([type="button"]):focus::placeholder {
+    color: var(--accent);
+    border-color: var(--sementic-purple);
+}
+
+input:not([type="button"]):focus + label { color: var(--sementic-purple) }
+
+@import './m-button.scss';
+input[type="button"] { @include primary } // Input save button
+button { @include destructive } // Button delete
+
+// Revers label and input
+form > div { @include layout-flex(column-reverse, flex-start, center) }
+
+// Border
+.border-top { border-top: 2px solid grey }
+.border-right { border-right: 2px solid grey }
+
+// 
+.p0 { padding: 0 }
+.pl50 { padding-left: 50px }
+
+.mr20 { margin-right: 20px }
+.mb5 { margin-bottom: 5px }
+.mb25 { margin-bottom: 25px }
+.mb35 { margin-bottom: 35px }
+
+.center { text-align: center }
+
+.list-style { list-style: none }
+
+.relative { position: relative }
+
+.uppercase { text-transform: uppercase }
+
+@import './a-theme.scss';
+@import './m-picture.scss';

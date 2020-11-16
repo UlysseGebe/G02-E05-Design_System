@@ -1,0 +1,39 @@
+@mixin primary {
+    & {
+        border: 1px solid var(--accent);
+        background-color: var(--accent);
+        color: #FFF;
+    }
+    
+    &:hover {
+        border: 1px solid var(--accent);
+        background-color: var(--bg);
+        color: var(--accent);
+    }
+
+    &:active {
+        border: 1px solid var(--sementic-purple);
+        background-color: var(--sementic-purple);
+        color: #FFF;
+    }
+}
+
+@mixin destructive {
+    & {
+        border: 1px solid var(--sementic-red);
+        background-color: var(--sementic-red);
+        color: #FFF;
+    }
+    
+    &:hover {
+        border: 1px solid var(--sementic-red-dark);
+        background-color: var(--bg);
+        color: var(--sementic-red-dark);
+    }
+
+    &:active {
+        border: 1px solid var(--sementic-red-dark);
+        background-color: var(--sementic-red-dark);
+        color: #FFF;
+    }
+}

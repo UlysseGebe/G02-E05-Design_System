@@ -1,11 +1,15 @@
 @import 'assets/style/styles';
 
 .App {
-  text-align: center;
   @include layout-flex(row, center, center); /* flex-start / center / flex-end */
-  @include childs(20%, 1);
+  @include divid(30%);
+  @include childs(50%, 1, 1, column, center, space-between);
+  @include childs(50%, 1, 2);
+  @include childs(50%, 0, 1);
+  @include childs(40%, 0, 2);
   min-height: 100vh;
   min-width: 100vw;
+  background-color: var(--bg);
 }
 
 .App-logo {

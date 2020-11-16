@@ -1,0 +1,5 @@
+.a-theme {
+    @include layout-flex(row, center, center); /* flex-start / center / flex-end */
+}
+
+@import './m-switch.scss';

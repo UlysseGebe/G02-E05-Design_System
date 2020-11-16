@@ -5,22 +5,22 @@ class Login extends React.Component {
     render() {
         return (
             <div className="Login">
-                <form action="">
-                <h1>Profile</h1>
-                <div>
-                    <label for="email" htmlFor="email">E-mail</label>
-                    <input type="email"/>
+                <form action="" className="mb25">
+                <h1 className="start mb25">Profile</h1>
+                <div className="mb25">
+                    <input type="email" placeholder="Saisissez votre adresse e-mail" />
+                    <label className="mb5" htmlFor="email" >E-mail</label>
                 </div>
-                <div>
-                    <label for="name" htmlFor="name">Fullname</label>
-                    <input type="name"/>
+                <div className="mb35" >
+                    <input type="name" placeholder="John Doe" />
+                    <label className="mb5" htmlFor="name" >Fullname</label>
                 </div>
-                <input type="button" value="save"/>
+                <input type="button" value="save" className="uppercase" />
                 </form>
-                <div className="delete">
+                <div className="delete border-top">
                     <h2>Delete my account</h2>
                     <p>To delete your account entirely, please click here. </p>
-                    <button>Delete</button>
+                    <button className="uppercase" >Delete</button>
                 </div>
             </div>
         )
