@@ -4,14 +4,14 @@ const login = {
         {
             type: "email",
             label: "E-mail",
-            holder: "Saisissez votre adresse e-mail",
-            class: "mb25"
+            holder: "john.doe@email.com",
+            class: "u-margin-bottom:25"
         },
         {
             type: "name",
             label: "Fullname",
             holder: "John Doe",
-            class: "mb35"
+            class: "u-margin-bottom:35"
         }
     ],
     formSave: "Save",

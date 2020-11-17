@@ -1,0 +1,30 @@
+// General CTA
+input, button {
+    outline: none;
+    border-radius: 5px;
+    min-height: 40px;
+    min-width: 98px;
+}
+
+// CTA Settings
+// // Input field
+input:not([type="button"]) {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid var(--neutral-6);
+    width: 100%;
+    background-color: var(--bg);
+}
+
+input::placeholder { color: var(--neutral-6) }
+
+input:not([type="button"]):focus,
+input:not([type="button"]):focus::placeholder {
+    color: var(--accent);
+    border-color: var(--sementic-purple);
+}
+
+input:not([type="button"]):focus + label { color: var(--sementic-purple) }
+
+input[type="button"] { @include primary } // Input save button
+button { @include destructive } // Button delete

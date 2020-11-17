@@ -1,6 +1,7 @@
-@import './colors/light.scss';
-@import './colors/dark.scss';
+@import './variable/colors/light.scss';
+@import './variable/colors/dark.scss';
 @import './fonts.scss';
+@import './spacing.scss';
 
 @mixin layout-flex($property, $value-x, $value-y) {
     display: flex;
@@ -41,75 +42,20 @@
 
 
 // General Text
-h1, h2, a, p, label {
-    color: var(--neutral-6);
-    text-decoration: none;
-}
+h1, h2, a, p, label { color: var(--neutral-6) }
 
-a:hover,
-.active > h2 a {
-    color: var(--accent);
-}
-
-h1 { @include title }
-h2 { @include subtitle }
-label { @include section }
-input, button, p { @include corps }
-
-// General CTA
-input, button {
-    outline: none;
-    border-radius: 5px;
-    min-height: 40px;
-    min-width: 98px;
-}
-
-// CTA Settings
-// // Input field
-input:not([type="button"]) {
-    padding: 1px 10px;
-    border: 1px solid var(--neutral-6);
-    width: 100%;
-    background-color: var(--bg);
-}
-
-input::placeholder { color: var(--neutral-6) }
-
-input:not([type="button"]):focus,
-input:not([type="button"]):focus::placeholder {
-    color: var(--accent);
-    border-color: var(--sementic-purple);
-}
-
-input:not([type="button"]):focus + label { color: var(--sementic-purple) }
-
-@import './m-button.scss';
-input[type="button"] { @include primary } // Input save button
-button { @include destructive } // Button delete
+a { text-decoration: none }
+a:hover, .active { color: var(--accent) }
 
 // Revers label and input
 form > div { @include layout-flex(column-reverse, flex-start, center) }
 
 // Border
 .border-top { border-top: 2px solid grey }
-.border-right { border-right: 2px solid grey }
+.border-left { border-left: 2px solid grey }
 
-// 
-.p0 { padding: 0 }
-.pl50 { padding-left: 50px }
-
-.mr20 { margin-right: 20px }
-.mb5 { margin-bottom: 5px }
-.mb25 { margin-bottom: 25px }
-.mb35 { margin-bottom: 35px }
-
-.center { text-align: center }
-
-.list-style { list-style: none }
-
-.relative { position: relative }
-
-.uppercase { text-transform: uppercase }
-
+@import './m-button.scss';
+@import './cta.scss';
+@import './utility-classes.scss';
 @import './a-theme.scss';
 @import './m-picture.scss';

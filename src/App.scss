@@ -3,7 +3,7 @@
 .App {
   @include layout-flex(row, center, center); /* flex-start / center / flex-end */
   @include divid(30%);
-  @include childs(50%, 1, 1, column, center, space-between);
+  @include childs(50%, 1, 1, column, center, space-around);
   @include childs(50%, 1, 2);
   @include childs(50%, 0, 1);
   @include childs(40%, 0, 2);

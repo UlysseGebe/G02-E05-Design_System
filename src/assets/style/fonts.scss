@@ -1,34 +1,42 @@
 @font-face {
-    font-family: "Fabriga";
-    src: url("../fonts/Fabriga-Black.otf") format("otf"),
-         url("../fonts/Fabriga-Bold.ttf") format("ttf"),
-         url("../fonts/Fabriga-Bold.otf") format("otf");
+    font-family: "Fabriga Black";
+    src: url("../fonts/Fabriga-Black.woff2") format("woff2"),
+         url("../fonts/Fabriga-Black.woff") format("woff");
+    font-display: swap;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Fabriga Bold";
+    src: url("../fonts/Fabriga-Bold.woff2") format("woff2"),
+         url("../fonts/Fabriga-Bold.woff") format("woff");
+    font-display: swap;
+    font-weight: 500;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("../fonts/Inter-Regular.ttf") format("ttf");
+    src: url("../fonts/Inter-Regular.woff2") format("woff2"),
+         url("../fonts/Inter-Regular.woff") format("woff");
+    font-display: swap;
 }
 
 @mixin title {
-    font-family: "Fabriga", sans-serif;
+    font-family: "Fabriga Black", sans-serif;
     font-size: 36pt;
-    font-weight: 600;
 }
 
 @mixin subtitle {
-    font-family: "Fabriga", sans-serif;
+    font-family: "Fabriga Bold", sans-serif;
     font-size: 24pt;
-    font-weight: 500;
 }
 
 @mixin section {
     font-family: "Fabriga", sans-serif;
     font-size: 18pt;
-    font-weight: 500;
 }
 
-@mixin corps {
+@mixin corp {
     font-family: "Inter";
     font-size: 15pt;
 }
