@@ -10,6 +10,10 @@ class Sidemenu extends React.Component {
     }
 
     componentDidMount() {
+        this.setState({
+            isChecked: getCookie('dark') === "true" ? true : false,
+        });
+        setCookie('dark', this.state.isChecked)
         themeChange(this.state.isChecked)
         size()
     }
@@ -20,15 +24,15 @@ class Sidemenu extends React.Component {
                 <menu className="p0" >
                     <h2>{sidemenu.title}</h2>
                     <ul className="border-top list-style pl50">
-                        {sidemenu.menu.map((list) =>{
+                        {sidemenu.menu.map((list, index) =>{
                             return typeof list == "object" ?
-                                <li className="relative mb35 active" >
+                                <li className="relative mb35 active" key={index} >
                                     <div className="m-picture" style={{backgroundImage: 'url('+list.img+')'}} >
                                     </div>
                                     <h2><a href="http://localhost:3000/" >{list.name}</a></h2>
                                 </li>
                             :
-                            <li className="mb35"><h2><a href="http://localhost:3000/">{list}</a></h2></li>
+                            <li className="mb35" key={index}><h2><a href="http://localhost:3000/">{list}</a></h2></li>
                         })}
                     </ul>
                 </menu>
@@ -47,9 +51,12 @@ class Sidemenu extends React.Component {
         this.setState({
             isChecked: !this.state.isChecked,
         });
-      }
+    }
 
-    componentDidUpdate() { themeChange(this.state.isChecked) }
+    componentDidUpdate() {
+        setCookie('dark', this.state.isChecked)
+        themeChange(this.state.isChecked)
+    }
 }
 
 const size = () => {
@@ -69,6 +76,25 @@ const size = () => {
 function themeChange(e) {
     let app = document.querySelector(".App")
     app.dataset.theme = e ? 'dark' : 'light'
+}
+
+function setCookie(c_name, value) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate());
+    var c_value = escape(value);
+    document.cookie = c_name + "=" + c_value;
+}
+
+function getCookie(c_name) {
+    var i, x, y, ARRcookies = document.cookie.split(";");
+    for (i = 0; i < ARRcookies.length; i++) {
+        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+        x = x.replace(/^\s+|\s+$/g, "");
+        if (x === c_name) {
+            return unescape(y);
+        }
+    }
 }
 
 window.addEventListener('resize', () => {
